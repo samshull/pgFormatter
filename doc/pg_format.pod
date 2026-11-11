@@ -6,7 +6,7 @@ pg_format - PostgreSQL SQL syntax beautifier
 
 This is samshull/pgFormatter, based on darold/pgFormatter under the original
 PostgreSQL and embedded SQL::Beautify licenses. Version output identifies this
-fork as 5.11.1-samshull.1. Upstream remains darold/pgFormatter; keep fork changes
+fork as 5.12.0-N. Upstream remains darold/pgFormatter; keep fork changes
 separate when incorporating future upstream fixes.
 
 The optional C<profiles/readable.conf> profile enables extended SQL layout,

@@ -18,7 +18,7 @@ my $archive = shift @ARGV;
 die "Usage: test-release.pl path/to/pgFormatter-VERSION.tar.gz\n" if !defined($archive) || @ARGV;
 $archive = abs_path($archive) or die "Archive not found\n";
 my $name = basename($archive);
-$name =~ /^pgFormatter-(\d+\.\d+\.\d+-samshull\.\d+)\.tar\.gz$/ or die "Invalid archive name\n";
+$name =~ /^pgFormatter-(\d+\.\d+\.\d+-\d+)\.tar\.gz$/ or die "Invalid archive name\n";
 my $version = $1;
 my $prefix = "pgFormatter-$version";
 sub read_file {

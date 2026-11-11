@@ -38,7 +38,7 @@ my $tar = Archive::Tar->new($path, 1);
 my @members = $tar->get_files;
 my ($metadata_file) = grep { $_->full_path =~ /\/release\.json$/ } @members;
 my $metadata = decode_json($metadata_file->get_content);
-like($metadata->{version}, qr/^\d+\.\d+\.\d+-samshull\.\d+$/, 'fork version in metadata');
+like($metadata->{version}, qr/^\d+\.\d+\.\d+-\d+$/, 'fork version in metadata');
 like($metadata->{revision}, qr/^[a-f0-9]{40}$/, 'full source revision in metadata');
 for my $pair (
     ['bin/pg_format', 'pg_format'],
@@ -51,7 +51,7 @@ for my $pair (
     ok($file, "$pair->[0] is packaged");
     is($file->get_content, read_file($pair->[1]), "$pair->[0] retains original bytes") if $file;
 }
-($status, undef, $error) = run($^X, 'scripts/build-release.pl', "$temporary/invalid", 'v0.0.0-samshull.0');
+($status, undef, $error) = run($^X, 'scripts/build-release.pl', "$temporary/invalid", 'v0.0.0-0');
 ok($status, 'mismatched release tag is rejected');
 like($error, qr/Tag must be/, 'tag failure explains expected version');
 open my $bad, '>>:raw', $path or die $!;

@@ -18,8 +18,8 @@ jobs:
       - id: alpha
         if: github.ref == 'refs/heads/master'
         run: |
-          # Continue after v5.12.0-1
-          echo "version=v5.12.0-$((GITHUB_RUN_NUMBER))" >> "$GITHUB_OUTPUT"
+          # No leading v: the publish job adds it to form the tag.
+          echo "version=5.12.0-$GITHUB_RUN_NUMBER" >> "$GITHUB_OUTPUT"
 
   package:
     needs: version

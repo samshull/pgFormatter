@@ -21,6 +21,8 @@ Version 5.11.1
 
 # Version of pgFormatter
 our $VERSION = '5.11.1';
+# Fork release version reported by --version; CI stamps alpha builds here.
+our $FORK_VERSION = '5.12.0-1';
 
 use autodie;
 use pgFormatter::Beautify;
@@ -578,7 +580,7 @@ sub get_command_line_args {
 	$self->show_help_and_die(0) if $cfg{'help'};
 
 	if ( $cfg{'version'} ) {
-		printf '%s version %s%s', basename($0), $VERSION . '-samshull.2', "\n";
+		printf '%s version %s%s', basename($0), $FORK_VERSION, "\n";
 		exit 0;
 	}
 

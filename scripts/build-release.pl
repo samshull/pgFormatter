@@ -24,7 +24,7 @@ sub capture {
 }
 my $version = capture($^X, "$root/pg_format", '--version');
 $version =~ s/^pg_format version // or die "Unexpected formatter version\n";
-die "Invalid fork version\n" unless $version =~ /^\d+\.\d+\.\d+-samshull\.\d+$/;
+die "Invalid fork version\n" unless $version =~ /^\d+\.\d+\.\d+-\d+$/;
 die "Tag must be v$version\n" if defined($tag) && $tag ne "v$version";
 my $revision = capture('git', '-C', $root, 'rev-parse', 'HEAD');
 my $epoch = capture('git', '-C', $root, 'show', '-s', '--format=%ct', 'HEAD');
